@@ -1,0 +1,138 @@
+:root {
+  --bg-1: hsl(0, 0%, 80%);
+  --bg-2: hsl(0, 0%, 90%);
+  --bg-3: hsl(0, 0%, 100%);
+  --bg-4: hsl(0, 0%, 0%);
+
+  --text-1: hsl(0, 0%, 5%);
+  --text-2: hsl(0, 0%, 30%);
+  --text-3: hsl(0, 0%, 95%);
+  --text-4: hsl(0, 0%, 70%);
+  --accent: hsl(219, 89%, 44%);
+
+  --max-w-d: 75%;
+
+  --font-xs: 0.75rem; /* small labels */
+  --font-sm: 0.875rem; /* secondary text */
+  --font-md: 1rem; /* base text */
+  --font-lg: 1.25rem; /* subheadings */
+  --font-xl: 1.5rem; /* headings */
+  --font-xxl: 2rem; /* large titles */
+  --font-xxxl: 3rem; /* hero text */
+}
+@font-face {
+  font-family: "MainFont";
+  src: url("fonts/Main.ttf") format("truetype");
+}
+
+body {
+  font-family: "MainFont", sans-serif;
+  margin: 0;
+}
+
+.section-p {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.section-i {
+  width: 100%;
+  max-width: var(--max-w-d);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* HEADER SECTION */
+.header-p {
+  height: auto;
+  max-height: 100px;
+  -webkit-box-shadow: 0px -8px 15px 3px #000000;
+  box-shadow: 0px -8px 15px 3px #000000;
+  position: fixed;
+}
+
+.header-i {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.header-l {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-logo {
+  width: 25px;
+  height: 25px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-l h1 {
+  font-size: var(--font-lg);
+}
+
+.header-mid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-list {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  font-size: var(--font-md);
+}
+
+.header-list a {
+  text-decoration: none;
+  color: var(--text-2);
+}
+
+.header-list li {
+  transition: 300ms all ease;
+  color: var(--text-2);
+}
+
+.header-list a:hover,
+li:hover {
+  transform: translateY(-4px);
+  color: var(--accent);
+}
+
+.header-r {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header-contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--bg-4);
+  padding: 15px;
+  border-radius: 20px;
+}
+
+.header-contact img {
+  margin-right: 10px;
+}
+
+.header-contact a {
+  text-decoration: none;
+  color: var(--text-3);
+}
