@@ -21,7 +21,7 @@
   --font-xxxl: 3rem; /* hero text */
   --font-xxxxl: 3.5rem;
 
-  --border-colour: hsl(0, 0%, 73%);
+  --border-colour: hsl(0, 0%, 88%);
 }
 @font-face {
   font-family: "MainFont";
@@ -450,6 +450,7 @@ li:hover {
   display: flex;
   justify-content: space-between;
   height: auto;
+  flex-direction: column;
   margin-top: 100px;
   margin-bottom: 100px;
 }
@@ -494,4 +495,37 @@ li:hover {
 .attribute p {
   margin: 0;
   color: var(--text-2);
+}
+
+.about-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-trust-cards {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trust-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border: 1px solid var(--border-colour);
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.trust-card-img {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.trust-card-txt p,
+h2 {
+  margin: 0;
 }
