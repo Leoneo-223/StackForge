@@ -1,7 +1,7 @@
 :root {
-  --bg-1: hsl(0, 0%, 80%);
-  --bg-2: hsl(0, 0%, 90%);
-  --bg-3: hsl(0, 0%, 100%);
+  --bg-1: hsla(0, 0%, 98%, 0.9);
+  --bg-2: hsla(0, 0%, 99%, 0.95);
+  --bg-3: hsla(0, 0%, 100%, 1);
   --bg-4: hsl(0, 0%, 0%);
 
   --text-1: hsl(0, 0%, 5%);
@@ -19,6 +19,9 @@
   --font-xl: 1.5rem; /* headings */
   --font-xxl: 2rem; /* large titles */
   --font-xxxl: 3rem; /* hero text */
+  --font-xxxxl: 3.5rem;
+
+  --border-colour: hsl(0, 0%, 73%);
 }
 @font-face {
   font-family: "MainFont";
@@ -28,6 +31,7 @@
 body {
   font-family: "MainFont", sans-serif;
   margin: 0;
+  text-align: justify;
 }
 
 .section-p {
@@ -35,6 +39,7 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--bg-1);
 }
 
 .section-i {
@@ -47,32 +52,39 @@ body {
 
 /* HEADER SECTION */
 .header-p {
-  height: auto;
-  max-height: 100px;
-  -webkit-box-shadow: 0px -8px 15px 3px #000000;
-  box-shadow: 0px -8px 15px 3px #000000;
   position: fixed;
-}
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
 
+  background: transparent;
+}
 .header-i {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  margin-top: 35px;
+  background: rgba(255, 255, 255, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 50px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.08);
 }
-
 .header-l {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  margin-left: 20px;
 }
 
 .header-logo {
   width: 25px;
   height: 25px;
-  padding: 10px;
+  margin-right: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -111,12 +123,14 @@ body {
 li:hover {
   transform: translateY(-4px);
   color: var(--accent);
+  font-weight: 520;
 }
 
 .header-r {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-right: 20px;
 }
 
 .header-contact {
@@ -124,15 +138,349 @@ li:hover {
   align-items: center;
   justify-content: center;
   background-color: var(--bg-4);
-  padding: 15px;
+  padding: 14px;
   border-radius: 20px;
-}
-
-.header-contact img {
-  margin-right: 10px;
+  transition: 300ms all ease;
+  border: 1px solid var(--border-colour);
 }
 
 .header-contact a {
   text-decoration: none;
   color: var(--text-3);
+  transition: 300ms all ease;
+}
+
+.header-contact:hover {
+  background-color: var(--bg-3);
+}
+
+.header-contact:hover a {
+  color: var(--text-1);
+}
+
+.header-contact img {
+  margin-right: 7px;
+}
+
+.header-contact a {
+  text-decoration: none;
+  color: var(--text-3);
+}
+
+/* MAIN SECTION */
+.main-p {
+  height: 80dvh;
+  padding-top: 120px;
+  background:
+    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%),
+    repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.03) 0px,
+      rgba(0, 0, 0, 0.03) 1px,
+      transparent 1px,
+      transparent 40px
+    );
+}
+
+.main-i {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  gap: 5rem;
+}
+
+/* LEFT SIDE */
+.main-l {
+  max-width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main-l-h1 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: start;
+}
+
+.main-l-h1 h1 {
+  font-size: 4rem;
+  margin: 0;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  font-weight: 800;
+  color: var(--text-1);
+}
+
+/* UNDERLINE ACCENT */
+.accent-line {
+  position: relative;
+  display: inline-block;
+  color: var(--accent);
+}
+
+.accent-line::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 8px;
+  width: 100%;
+  height: 12px;
+  background-color: var(--accent);
+  border-radius: 10px;
+  opacity: 0.7;
+  z-index: -1;
+}
+
+/* PARAGRAPH */
+.main-l-p {
+  margin-top: 20px;
+  margin-bottom: 0;
+}
+
+.main-l-p p {
+  font-size: 1.15rem;
+  color: var(--text-2);
+  max-width: 520px;
+  line-height: 1.7;
+}
+
+/* BUTTON ROW */
+.main-l-b {
+  margin-top: 10px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+/* PRIMARY BUTTON */
+.main-l-start {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, var(--bg-4), #222);
+  height: 60px;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-radius: 16px;
+  cursor: pointer;
+  transition: 300ms all ease;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.main-l-start img {
+  margin-right: 10px;
+  transition: 300ms all ease;
+}
+
+.main-l-start a {
+  text-decoration: none;
+  color: var(--text-3);
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+/* HOVER */
+.main-l-start:hover {
+  transform: translateY(-4px) scale(1.02);
+  background: linear-gradient(135deg, var(--accent), hsl(219, 89%, 55%));
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+}
+
+.main-l-start:hover img {
+  transform: scale(1.05);
+}
+
+/* CLICK */
+.main-l-start:active {
+  transform: translateY(-1px) scale(0.98);
+}
+
+.learn-more {
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-colour);
+  transition: all 300ms ease;
+}
+
+.learn-more a {
+  text-decoration: none;
+  color: var(--text-1);
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 0 32px;
+  position: relative;
+  z-index: 2;
+  transition: 300ms ease;
+}
+
+.learn-more::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent,
+    rgba(255, 255, 255, 0.6),
+    transparent
+  );
+  transform: skewX(-25deg);
+}
+
+.learn-more:hover::before {
+  animation: shine 0.8s ease forwards;
+}
+
+.learn-more:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.learn-more:hover a {
+  color: var(--accent);
+}
+
+@keyframes shine {
+  100% {
+    left: 125%;
+  }
+}
+
+/* TRUST ROW */
+.trust-row {
+  margin-top: 35px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.trust-row p {
+  font-size: 0.95rem;
+  color: var(--text-2);
+}
+
+.trust-row strong {
+  color: var(--text-1);
+}
+
+/* AVATARS */
+.avatars {
+  display: flex;
+  align-items: center;
+}
+
+.avatars div {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #ddd;
+  border: 2px solid white;
+  margin-left: -10px;
+}
+
+.avatars div:first-child {
+  margin-left: 0;
+}
+
+/* RIGHT SIDE */
+.main-r {
+  width: 50%;
+  height: 420px;
+  background: linear-gradient(135deg, var(--bg-3), var(--bg-2));
+  border-radius: 30px;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.main-r::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background-color: var(--accent);
+  filter: blur(120px);
+  top: -50px;
+  right: -50px;
+  opacity: 0.3;
+}
+
+.main-r::after {
+  content: "";
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background-color: var(--accent);
+  filter: blur(100px);
+  bottom: -40px;
+  left: -40px;
+  opacity: 0.2;
+}
+
+/* ABOUT SECTION */
+.about-p {
+  background-color: var(--bg-2);
+}
+.about-i {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+  margin-top: 100px;
+  margin-bottom: 100px;
+}
+
+.about-top-l-h {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  max-width: 50%;
+}
+
+.about-top-l-h h1 {
+  text-align: start;
+  margin: 0;
+  font-size: var(--font-xxxxl);
+}
+
+.needs {
+  color: var(--text-2);
+}
+
+.about-top-l-h p {
+  font-size: 1.15rem;
+  color: var(--text-2);
+  line-height: 1.7;
+}
+
+.about-attributes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 25px;
+}
+
+.attribute h2 {
+  margin: 0;
+  columns: var(--accent);
+}
+
+.attribute p {
+  margin: 0;
+  color: var(--text-2);
 }
