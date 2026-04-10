@@ -28,6 +28,10 @@
   src: url("fonts/Main.ttf") format("truetype");
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: "MainFont", sans-serif;
   margin: 0;
@@ -170,7 +174,7 @@ body {
 /* MAIN SECTION */
 .main-p {
   height: 80dvh;
-  padding-top: 120px;
+  padding-top: 80px;
   background:
     linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%),
     repeating-linear-gradient(
@@ -206,6 +210,7 @@ body {
 }
 
 .main-l-h1 h1 {
+  max-width: 75%;
   font-size: 4rem;
   margin: 0;
   line-height: 1.05;
@@ -394,11 +399,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 300ms all ease;
 }
 
 .avatars div:hover {
   transform: scale(1.1);
-  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  transform: rotate(360deg);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 .avatars div img {
@@ -454,9 +461,15 @@ body {
 .about-i {
   display: flex;
   justify-content: space-between;
+  align-items: start;
+  justify-content: center;
   height: auto;
   flex-direction: column;
-  margin-top: 100px;
+  margin-top: 150px;
+  margin-bottom: 100px;
+}
+
+.about-top-l {
   margin-bottom: 100px;
 }
 
@@ -465,7 +478,7 @@ body {
   justify-content: center;
   align-items: start;
   flex-direction: column;
-  max-width: 50%;
+  max-width: 70%;
 }
 
 .about-top-l-h h1 {
@@ -488,13 +501,13 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 1rem;
+  gap: 1.3rem;
   margin-top: 25px;
 }
 
 .attribute h2 {
   margin: 0;
-  color: var(--accent); 
+  color: var(--accent);
 }
 
 .attribute p {
@@ -502,35 +515,133 @@ body {
   color: var(--text-2);
 }
 
-.about-bottom {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.timeline-p {
+  background: var(--bg-1);
+  padding: 120px 0;
 }
 
-.about-trust-cards {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.timeline-i {
+  flex-direction: column;
 }
 
-.trust-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  border: 1px solid var(--border-colour);
-  border-radius: 20px;
-  padding: 20px;
+.timeline-header {
+  width: 100%;
+  text-align: center;
 }
 
-.trust-card-img {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.trust-card-txt p,
-h2 {
+.timeline-header h1 {
+  font-size: var(--font-xxxl);
   margin: 0;
+}
+
+.timeline-header p {
+  color: var(--text-2);
+  margin-top: 10px;
+}
+
+.timeline {
+  position: relative;
+  width: 100%;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 2px;
+  height: 100%;
+  background: var(--border-colour);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  padding: 40px 50px;
+  box-sizing: border-box;
+  transition: 300ms all ease;
+}
+
+.timeline-item:hover {
+  transform: translateY(-4px);
+}
+
+.timeline-item.left {
+  left: 0;
+  text-align: right;
+}
+
+.timeline-item.right {
+  left: 50%;
+  text-align: left;
+}
+
+.timeline-item::after {
+  content: "";
+  position: absolute;
+  top: 50px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.timeline-item.left::after {
+  right: -7px;
+}
+
+.timeline-item.right::after {
+  left: -7px;
+}
+
+.timeline-item .timeline-content {
+  background: var(--bg-3);
+  padding: 20px 25px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  display: inline-block;
+  max-width: 400px;
+}
+
+.timeline-item .year {
+  display: inline-block;
+  background: rgba(0, 0, 0, 0.05);
+  padding: 5px 12px;
+  border-radius: 20px;
+  font-size: var(--font-sm);
+  margin-bottom: 10px;
+}
+
+.timeline-item h3 {
+  margin: 5px 0;
+}
+
+.timeline-item p {
+  margin: 0;
+  color: var(--text-2);
+}
+
+/* MOBILE */
+@media (max-width: 900px) {
+  .timeline::before {
+    left: 10px;
+  }
+
+  .timeline-item {
+    width: 100%;
+    padding-left: 40px;
+    padding-right: 20px;
+  }
+
+  .timeline-item.left,
+  .timeline-item.right {
+    left: 0;
+    text-align: left;
+  }
+
+  .timeline-item::after {
+    left: 3px;
+  }
 }
