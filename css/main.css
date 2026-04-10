@@ -120,7 +120,7 @@ body {
 }
 
 .header-list a:hover,
-li:hover {
+.header-list li:hover {
   transform: translateY(-4px);
   color: var(--accent);
   font-weight: 520;
@@ -494,7 +494,7 @@ li:hover {
 
 .attribute h2 {
   margin: 0;
-  columns: var(--accent);
+  color: var(--accent); 
 }
 
 .attribute p {
