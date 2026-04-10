@@ -396,6 +396,11 @@ li:hover {
   justify-content: center;
 }
 
+.avatars div:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
 .avatars div img {
   width: 100%;
   height: 100%;
