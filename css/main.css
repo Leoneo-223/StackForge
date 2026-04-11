@@ -456,63 +456,98 @@ body {
 
 /* ABOUT SECTION */
 .about-p {
-  background-color: var(--bg-2);
+  background: var(--bg-2);
+  padding: 120px 0;
 }
+
 .about-i {
   display: flex;
-  justify-content: space-between;
-  align-items: start;
-  justify-content: center;
-  height: auto;
-  flex-direction: column;
-  margin-top: 150px;
-  margin-bottom: 100px;
+  flex-direction: column; 
+  align-items: flex-start; 
+  margin: 0 auto;
+  max-width: 1200px;
+  padding: 0 20px;
 }
 
+/* CONTAINER */
 .about-top-l {
-  margin-bottom: 100px;
+  width: 100%;
 }
 
+/* TEXT BLOCK */
 .about-top-l-h {
   display: flex;
-  justify-content: center;
-  align-items: start;
   flex-direction: column;
-  max-width: 70%;
+  max-width: 600px;
+  gap: 18px;
 }
 
+/* HEADINGS */
 .about-top-l-h h1 {
-  text-align: start;
   margin: 0;
-  font-size: var(--font-xxxxl);
+  font-size: clamp(2.8rem, 5vw, 4rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.understand {
+  color: var(--text-1);
 }
 
 .needs {
-  color: var(--text-2);
-}
-
-.about-top-l-h p {
-  font-size: 1.15rem;
-  color: var(--text-2);
-  line-height: 1.7;
-}
-
-.about-attributes {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1.3rem;
-  margin-top: 25px;
-}
-
-.attribute h2 {
-  margin: 0;
   color: var(--accent);
 }
 
-.attribute p {
-  margin: 0;
+
+.about-top-l-h p {
+  font-size: 1.1rem;
   color: var(--text-2);
+  line-height: 1.8;
+  margin-top: 10px;
+  max-width: 480px;
+}
+
+
+.about-attributes {
+  display: flex;
+  gap: 20px;
+  margin-top: 05px;
+  flex-wrap: nowrap;
+}
+
+
+.attribute {
+  padding: 20px 24px;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-colour);
+  min-width: 180px;
+  white-space: normal; 
+  overflow: visible;
+  transition: all 0.3s ease;
+}
+
+
+.attribute:hover {
+  transform: translateY(-6px);
+  border-color: var(--accent);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+.attribute h2 {
+  margin: 0;
+  font-size: 1.9rem;
+  color: var(--accent);
+}
+
+
+.attribute p {
+  margin-top: 6px;
+  font-size: 0.9rem;
+  color: var(--text-2);
+  opacity: 0.75;
 }
 
 .timeline-p {
@@ -525,6 +560,7 @@ body {
 }
 
 .timeline-header {
+  margin-top: 150px;
   width: 100%;
   text-align: center;
 }
