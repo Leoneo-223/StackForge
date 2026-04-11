@@ -1,6 +1,6 @@
 :root {
-  --bg-1: hsla(0, 0%, 98%, 0.9);
-  --bg-2: hsla(0, 0%, 99%, 0.95);
+  --bg-1: hsla(0, 0%, 96%, 1);
+  --bg-2: hsla(0, 0%, 98%, 1);
   --bg-3: hsla(0, 0%, 100%, 1);
   --bg-4: hsl(0, 0%, 0%);
 
@@ -73,7 +73,7 @@ body {
   -webkit-backdrop-filter: blur(12px);
   margin-top: 35px;
   background: rgba(255, 255, 255, 0.3);
-  border: 1px solid rgba(255, 255, 255, 0.4);
+  border: 1px solid var(--border-colour);
   border-radius: 50px;
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
@@ -175,15 +175,6 @@ body {
 .main-p {
   height: 80dvh;
   padding-top: 80px;
-  background:
-    linear-gradient(180deg, var(--bg-1) 0%, var(--bg-2) 100%),
-    repeating-linear-gradient(
-      0deg,
-      rgba(0, 0, 0, 0.03) 0px,
-      rgba(0, 0, 0, 0.03) 1px,
-      transparent 1px,
-      transparent 40px
-    );
 }
 
 .main-i {
@@ -222,21 +213,8 @@ body {
 /* UNDERLINE ACCENT */
 .accent-line {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
   color: var(--accent);
-}
-
-.accent-line::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 8px;
-  width: 100%;
-  height: 12px;
-  background-color: var(--accent);
-  border-radius: 10px;
-  opacity: 0.7;
-  z-index: -1;
 }
 
 /* PARAGRAPH */
@@ -267,14 +245,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--bg-4), #222);
   height: 60px;
   padding-left: 32px;
   padding-right: 32px;
   border-radius: 16px;
   cursor: pointer;
+  border: 1px solid var(--border-colour);
+  background-color: var(--accent);
   transition: 300ms all ease;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
 }
 
 .main-l-start img {
@@ -292,8 +270,7 @@ body {
 /* HOVER */
 .main-l-start:hover {
   transform: translateY(-4px) scale(1.02);
-  background: linear-gradient(135deg, var(--accent), hsl(219, 89%, 55%));
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
 }
 
 .main-l-start:hover img {
@@ -319,33 +296,13 @@ body {
 
 .learn-more a {
   text-decoration: none;
-  color: var(--text-1);
+  color: var(--text-2);
   font-size: 1rem;
   font-weight: 600;
   padding: 0 32px;
   position: relative;
   z-index: 2;
   transition: 300ms ease;
-}
-
-.learn-more::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: -75%;
-  width: 50%;
-  height: 100%;
-  background: linear-gradient(
-    120deg,
-    transparent,
-    rgba(255, 255, 255, 0.6),
-    transparent
-  );
-  transform: skewX(-25deg);
-}
-
-.learn-more:hover::before {
-  animation: shine 0.8s ease forwards;
 }
 
 .learn-more:hover {
@@ -394,7 +351,7 @@ body {
   height: 40px;
   border-radius: 50%;
   overflow: hidden;
-  border: 2px solid white;
+  border: 2px solid var(--border-colour);
   margin-left: -10px;
   display: flex;
   align-items: center;
@@ -456,17 +413,15 @@ body {
 
 /* ABOUT SECTION */
 .about-p {
-  background: var(--bg-2);
+  background: var(--bg-1);
   padding: 120px 0;
 }
 
 .about-i {
   display: flex;
-  flex-direction: column; 
-  align-items: flex-start; 
+  flex-direction: column;
+  align-items: flex-start;
   margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 20px;
 }
 
 /* CONTAINER */
@@ -496,9 +451,8 @@ body {
 }
 
 .needs {
-  color: var(--accent);
+  color: var(--text-2);
 }
-
 
 .about-top-l-h p {
   font-size: 1.1rem;
@@ -508,7 +462,6 @@ body {
   max-width: 480px;
 }
 
-
 .about-attributes {
   display: flex;
   gap: 20px;
@@ -516,18 +469,20 @@ body {
   flex-wrap: nowrap;
 }
 
-
 .attribute {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  text-align: start;
+  flex-direction: column;
   padding: 20px 24px;
   border-radius: 16px;
   background: rgba(255, 255, 255, 0.03);
-  border: 1px solid var(--border-colour);
-  min-width: 180px;
-  white-space: normal; 
+  min-width: 140px;
+  white-space: normal;
   overflow: visible;
   transition: all 0.3s ease;
 }
-
 
 .attribute:hover {
   transform: translateY(-6px);
@@ -535,13 +490,11 @@ body {
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
 }
 
-
 .attribute h2 {
   margin: 0;
   font-size: 1.9rem;
   color: var(--accent);
 }
-
 
 .attribute p {
   margin-top: 6px;
