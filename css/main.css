@@ -671,6 +671,7 @@ body {
   justify-content: space-between;
   align-items: center;
   flex-direction: row;
+  flex-wrap: wrap;
   width: 100%;
 }
 
@@ -991,6 +992,7 @@ body {
     flex-direction: column;
     text-align: center;
     gap: 3rem;
+    flex-wrap: wrap;
   }
 
   .main-l {
