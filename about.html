@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Us - CodeForger</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header class="head-p section-p">
+      <div class="head-i section-i">
+        <div class="head-l flex-c">
+          <div class="logo-txt flex-c">
+            <h1 class="logo-h1">CF</h1>
+          </div>
+          <h1>CodeForger</h1>
+        </div>
+
+        <div class="head-mid">
+          <div class="head-list flex-c">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="projects.html">Projects</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+        </div>
+
+        <div class="head-r flex-c">
+          <div class="head-con flex-c">
+            <img src="img/email.png" alt="Email icon" />
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ABOUT -->
+    <section class="about-p section-p">
+      <div class="about-i section-i">
+
+        <div class="about-header">
+          <h1>Meet The <span class="accent-line">Team</span></h1>
+          <p>We are the people behind CodeForger.</p>
+        </div>
+
+        <div class="team-slider flex-c">
+          <button class="arrow left">&#8592;</button>
+
+          <div class="team-card" id="team-card"></div>
+
+          <button class="arrow right">&#8594;</button>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-p section-p">
+      <div class="footer-i section-i">
+        <div class="footer-left">
+          <h2 class="footer-logo">CODEFORGER<span>.</span></h2>
+          <p>Forging your projects with passion.</p>
+        </div>
+
+        <div class="footer-r">
+          <div class="footer-col">
+            <h4>PRODUCT</h4>
+            <a href="#">Websites</a>
+            <a href="#">Discord Bots</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>INFO</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 CodeForger. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <script>
+      const team = [
+        { name: "Leoneo223", img: "img/olbi.png", desc: "Web developer" },
+        { name: "Wagman", img: "img/olbi.png", desc: "Backend developer" },
+        { name: "GrzegorzArmani", img: "img/olbi.png", desc: "Bot developer." },
+        { name: "Zjebunek", img: "img/olbi.png", desc: "Frontend developer" }
+      ];
+
+      const card = document.getElementById("team-card"); 
+      const btnNext = document.querySelector(".right");
+      const btnPrev = document.querySelector(".left");
+
+      if (!card) throw new Error("team-card not found");
+
+      let index = 0;
+      let autoSlide;
+
+      function renderCard() {
+        const { name, img, desc } = team[index];
+
+        card.innerHTML = `
+          <img src="${img}" alt="${name}" onerror="this.src='img/olbi.png'" />
+          <h2>${name}</h2>
+          <p>${desc}</p>
+        `;
+      }
+
+      function updateCard(direction = "right") {
+        const outX = direction === "right" ? "-40px" : "40px";
+        const inX = direction === "right" ? "40px" : "-40px";
+
+        card.style.transform = `translateX(${outX})`;
+        card.style.opacity = 0;
+
+        setTimeout(() => {
+          renderCard();
+
+          card.style.transform = `translateX(${inX})`;
+          card.offsetHeight;
+
+          card.style.transform = "translateX(0)";
+          card.style.opacity = 1;
+        }, 180);
+      }
+
+      function nextSlide() {
+        index = (index + 1) % team.length;
+        updateCard("right");
+      }
+
+      function prevSlide() {
+        index = (index - 1 + team.length) % team.length;
+        updateCard("left");
+      }
+
+      function startAutoSlide() {
+        autoSlide = setInterval(nextSlide, 3000);
+      }
+
+      function resetAutoSlide() {
+        clearInterval(autoSlide);
+        startAutoSlide();
+      }
+
+      btnNext.onclick = () => {
+        nextSlide();
+        resetAutoSlide();
+      };
+
+      btnPrev.onclick = () => {
+        prevSlide();
+        resetAutoSlide();
+      };
+
+      card.addEventListener("mouseenter", () => clearInterval(autoSlide));
+      card.addEventListener("mouseleave", startAutoSlide);
+
+      renderCard();
+      startAutoSlide();
+    </script>
+
+  </body>
+</html>

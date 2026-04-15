@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CodeForger | Projects</title>
+    <link rel="stylesheet" href="css/main.css" />
+  </head>
+  <body>
+
+    <!-- HEADER -->
+    <header class="head-p section-p">
+      <div class="head-i section-i">
+        <div class="head-l flex-c">
+          <div class="logo-txt flex-c">
+            <h1 class="logo-h1">CF</h1>
+          </div>
+          <h1>CodeForger</h1>
+        </div>
+
+        <div class="head-mid">
+          <div class="head-list flex-c">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="projects.html">Projects</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="faq.html">FAQ</a>
+          </div>
+        </div>
+
+        <div class="head-r flex-c">
+          <div class="head-con flex-c">
+            <img src="img/email.png" alt="Email icon" />
+            <a href="#">Contact</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- FAQ -->
+    <section class="faq-p section-p">
+      <div class="faq-i section-i">
+
+        <div class="faq-header">
+          <h1>Frequently Asked <span class="accent-line">Questions</span></h1>
+          <p>Everything you might want to know before working with us.</p>
+        </div>
+
+        <div class="faq-container">
+
+          <div class="faq-item">
+            <div class="faq-question">###</div>
+            <div class="faq-answer"><p>###</p></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">###</div>
+            <div class="faq-answer"><p>###</p></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">###</div>
+            <div class="faq-answer"><p>###</p></div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">###</div>
+            <div class="faq-answer"><p>###</p></div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer-p section-p">
+      <div class="footer-i section-i">
+        <div class="footer-left">
+          <h2 class="footer-logo">CODEFORGER<span>.</span></h2>
+          <p>Forging your projects with passion.</p>
+
+          <!--<div class="footer-socials">
+            <a href="#">IG</a>
+            <a href="#">TW</a>
+            <a href="#">MAIL</a>
+          </div>-->
+        </div>
+
+        <div class="footer-r">
+          <div class="footer-col">
+            <h4>PRODUCT</h4>
+            <a href="#">Websites</a>
+            <a href="#">Discord Bots</a>
+            <a href="#">Custom Work</a>
+            <a href="#">Pricing</a>
+          </div>
+
+          <div class="footer-col">
+            <h4>INFO</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 CodeForger. All rights reserved.</p>
+        <p>Built with precision.</p>
+      </div>
+    </footer>
+
+    <!-- JS -->
+    <script>
+      document.querySelectorAll(".faq-item").forEach(item => {
+        item.onclick = () => {
+          const open = item.classList.contains("active");
+
+          document.querySelectorAll(".faq-item").forEach(i => {
+            i.classList.remove("active");
+            i.querySelector(".faq-answer").style.height = null;
+          });
+
+          if (!open) {
+            item.classList.add("active");
+            const answer = item.querySelector(".faq-answer");
+            answer.style.height = answer.scrollHeight + "px";
+          }
+        };
+      });
+    </script>
+
+  </body>
+</html>
