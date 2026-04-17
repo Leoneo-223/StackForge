@@ -57,6 +57,32 @@
       </div>
     </section>
 
+    <section class="stats-p section-p">
+  <div class="stats-i section-i">
+
+    <div class="stat-box">
+      <h1>4 years</h1>
+      <p>of experience</p>
+    </div>
+
+    <div class="stat-box">
+      <h1>500+</h1>
+      <p>projects</p>
+    </div>
+
+    <div class="stat-box">
+      <h1>500K+</h1>
+      <p>lines of code</p>
+    </div>
+
+    <div class="stat-box">
+      <h1>4+</h1>
+      <p>team members</p>
+    </div>
+
+  </div>
+</section>
+
     <!-- FOOTER -->
     <footer class="footer-p section-p">
       <div class="footer-i section-i">
@@ -87,10 +113,10 @@
 
     <script>
       const team = [
-        { name: "Leoneo223", img: "img/olbi.png", desc: "Web developer" },
-        { name: "Wagman", img: "img/olbi.png", desc: "Backend developer" },
-        { name: "GrzegorzArmani", img: "img/olbi.png", desc: "Bot developer." },
-        { name: "Zjebunek", img: "img/olbi.png", desc: "Frontend developer" }
+        { name: "Leoneo223", img: "https://cdn.discordapp.com/avatars/1243229335972745308/bfe0036c494fb2fc025bee2bd2ce8f13.webp?size=1024", desc: "Web developer" },
+        { name: "Wagman", img: "https://cdn.discordapp.com/avatars/1329522711101440052/10b09b9df166e7f367574599c82506d4.webp?size=1024", desc: "Backend developer" },
+        { name: "GrzegorzArmani", img: "https://cdn.discordapp.com/avatars/1305554152172027979/480561aa2df86f78370c7edb8c529b2b.webp?size=1024", desc: "Bot developer." },
+        { name: "Zjebunek", img: "https://cdn.discordapp.com/avatars/742797050806009856/f6132783e1a65ab306fcdac07e0632c5.webp?size=1024", desc: "Frontend developer" }
       ];
 
       const card = document.getElementById("team-card"); 
@@ -112,23 +138,32 @@
         `;
       }
 
-      function updateCard(direction = "right") {
-        const outX = direction === "right" ? "-40px" : "40px";
-        const inX = direction === "right" ? "40px" : "-40px";
+function updateCard(direction = "right") {
+  const outX = direction === "right" ? -40 : 40;
+  const inX = direction === "right" ? 40 : -40;
 
-        card.style.transform = `translateX(${outX})`;
-        card.style.opacity = 0;
+  // wyjście
+  card.style.transition = "transform 0.3s ease, opacity 0.3s ease";
+  card.style.transform = `translateX(${outX}px)`;
+  card.style.opacity = 0;
 
-        setTimeout(() => {
-          renderCard();
+  setTimeout(() => {
+    // zmiana danych
+    renderCard();
 
-          card.style.transform = `translateX(${inX})`;
-          card.offsetHeight;
+    // reset pozycji (bez animacji)
+    card.style.transition = "none";
+    card.style.transform = `translateX(${inX}px)`;
 
-          card.style.transform = "translateX(0)";
-          card.style.opacity = 1;
-        }, 180);
-      }
+    // wymuszenie repaint
+    card.offsetHeight;
+
+    // wejście (już smooth)
+    card.style.transition = "transform 0.3s ease, opacity 0.3s ease";
+    card.style.transform = "translateX(0)";
+    card.style.opacity = 1;
+  }, 300);
+}
 
       function nextSlide() {
         index = (index + 1) % team.length;
