@@ -1,120 +1,123 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CodeForger | Pricing</title>
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/main.css" />
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         const buttons = document.querySelectorAll(".tab-btn");
         const contents = document.querySelectorAll(".tab-content");
-      
-        buttons.forEach(btn => {
+
+        buttons.forEach((btn) => {
           btn.addEventListener("click", () => {
             const target = btn.getAttribute("data-tab");
-      
-            buttons.forEach(b => b.classList.remove("active"));
-            contents.forEach(c => c.classList.remove("active"));
-      
+
+            buttons.forEach((b) => b.classList.remove("active"));
+            contents.forEach((c) => c.classList.remove("active"));
+
             btn.classList.add("active");
             document.getElementById(target).classList.add("active");
           });
         });
       });
-      </script>
-</head>
-<body>
+    </script>
+  </head>
+  <body>
     <header class="head-p section-p">
-        <div class="head-i section-i">
-          <div class="head-l flex-c">
-            <div class="logo-txt flex-c">
-              <h1 class="logo-h1">CF</h1>
-            </div>
-            <h1>CodeForger</h1>
+      <div class="head-i section-i">
+        <div class="head-l flex-c">
+          <div class="logo-txt flex-c">
+            <h1 class="logo-h1">CF</h1>
           </div>
-  
-          <div class="head-mid">
-            <div class="head-list flex-c">
-              <a href="/">Home</a>
-              <a href="">About Us</a>
-              <a href="">Projects</a>
-              <a href="/pricing.html">Pricing</a>
-              <a href="">FAQ</a>
-            </div>
-          </div>
-  
-          <div class="head-r flex-c">
-            <div class="head-con flex-c">
-              <img src="img/email.png" alt="Icon" />
-              <a href="">Contact</a>
-            </div>
+          <h1>CodeForger</h1>
+        </div>
+
+        <div class="head-mid">
+          <div class="head-list flex-c">
+            <a href="/">Home</a>
+            <a href="">About Us</a>
+            <a href="">Projects</a>
+            <a href="/pricing.html">Pricing</a>
+            <a href="">FAQ</a>
           </div>
         </div>
+
+        <div class="head-r flex-c">
+          <div class="head-con flex-c">
+            <img src="img/email.png" alt="Icon" />
+            <a href="">Contact</a>
+          </div>
+        </div>
+      </div>
     </header>
 
     <section class="price-p section-p flex-c">
-        <section class="price-i section-i">
-            <div class="price-txt">
-                <h1>Our Prices</h1>
-                <p>We set our prices at a good and affordable price we think is appropiate for the amount work we put in.</p>
+      <section class="price-i section-i">
+        <div class="price-txt">
+          <h1>Our Prices</h1>
+          <p>
+            We set our prices at a good and affordable price we think is
+            appropiate for the amount work we put in.
+          </p>
+        </div>
+
+        <div class="pricing-tabs flex-c">
+          <div class="tab-buttons">
+            <button class="tab-btn active" data-tab="websites">Websites</button>
+            <button class="tab-btn" data-tab="bots">Disc ord Bots</button>
+          </div>
+
+          <div class="price-content">
+            <div class="tab-content active" id="websites">
+              <p>Websites</p>
             </div>
 
-            <div class="pricing-tabs flex-c">
-              <div class="tab-buttons">
-                <button class="tab-btn active" data-tab="websites">Websites</button>
-                <button class="tab-btn" data-tab="bots">Disc  ord Bots</button>
-              </div>
-            
-              <div class="price-content">
-                <div class="tab-content active" id="websites">
-                  <p>Websites</p>
-                </div>
-              
-                <div class="tab-content" id="bots">
-                  <p>bots</p>
-                </div>
-              </div>
+            <div class="tab-content" id="bots">
+              <p>bots</p>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
     </section>
 
     <footer class="footer-p section-p">
-        <div class="footer-i section-i">
-          <div class="footer-left">
-            <h2 class="footer-logo">CODEFORGER<span>.</span></h2>
-            <p>Forging your projects with passion.</p>
-  
-            <!--<div class="footer-socials">
+      <div class="footer-i section-i">
+        <div class="footer-left">
+          <h2 class="footer-logo">CODEFORGER<span>.</span></h2>
+          <p>Forging your projects with passion.</p>
+
+          <!--<div class="footer-socials">
               <a href="#">IG</a>
               <a href="#">TW</a>
               <a href="#">MAIL</a>
             </div>-->
+        </div>
+
+        <div class="footer-r">
+          <div class="footer-col">
+            <h4>PRODUCT</h4>
+            <a href="#">Websites</a>
+            <a href="#">Discord Bots</a>
+            <a href="#">Custom Work</a>
+            <a href="#">Pricing</a>
           </div>
-  
-          <div class="footer-r">
-            <div class="footer-col">
-              <h4>PRODUCT</h4>
-              <a href="#">Websites</a>
-              <a href="#">Discord Bots</a>
-              <a href="#">Custom Work</a>
-              <a href="#">Pricing</a>
-            </div>
-  
-            <div class="footer-col">
-              <h4>INFO</h4>
-              <a href="#">About</a>
-              <a href="#">Contact</a>
-              <a href="#">Terms</a>
-              <a href="#">Privacy</a>
-            </div>
+
+          <div class="footer-col">
+            <h4>INFO</h4>
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Terms</a>
+            <a href="#">Privacy</a>
           </div>
         </div>
-  
-        <div class="footer-bottom">
-          <p>© 2026 CodeForger. All rights reserved.</p>
-          <p>Built with precision.</p>
-        </div>
-      </footer>
-</body>
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2026 CodeForger. All rights reserved.</p>
+        <p>Built with precision.</p>
+      </div>
+    </footer>
+  </body>
 </html>
