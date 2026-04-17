@@ -39,6 +39,15 @@ body {
   font-family: "MainFont", sans-serif;
   margin: 0;
   text-align: start;
+
+  --grid-color: rgba(255, 255, 255, 0.04); /* dużo subtelniej */
+
+  background-color: var(--bg-1);
+  background-image:
+    linear-gradient(to right, var(--grid-color) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-color) 1px, transparent 1px);
+
+  background-size: 40px 40px; /* mniejsze = bardziej eleganckie */
 }
 
 .flex-c {
@@ -140,7 +149,6 @@ body {
 /* Hero Section */
 .main-p {
   height: 100dvh;
-  background-color: var(--bg-1);
 }
 
 .main-i {
@@ -164,7 +172,6 @@ body {
   max-height: 400px;
   width: 100%;
   border-radius: 25px;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
 }
 
 .hero-card img {
@@ -236,8 +243,8 @@ body {
 .hero-stats {
   display: flex;
   gap: 40px;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 20px;
+  border-top: 2px solid rgba(255, 255, 255, 0.3);
+  padding-top: 30px;
 }
 
 .hero-stats h3 {
@@ -416,7 +423,6 @@ body {
 
 .faq-p {
   padding: 140px 0;
-  background: var(--bg-1);
 }
 
 .faq-i.section-i {
@@ -525,7 +531,6 @@ body {
 
 .about-p {
   padding: 140px 0 60px;
-  background: var(--bg-1);
   position: relative;
   overflow: hidden;
 }
@@ -639,7 +644,6 @@ body {
 
 .stats-p {
   padding: 0 0 40px;
-  background: var(--bg-1);
 }
 
 .stats-i {
